@@ -706,8 +706,8 @@ func (tr *TaskRunner) initDriver() error {
 // handleKill is used to handle the a request to kill a task. It will store any
 // error in the task runner killErr value.
 func (tr *TaskRunner) handleKill() {
-	// Run the hooks prior to killing the task
-	tr.killing()
+	// Run the pre killing hooks
+	tr.preKill()
 
 	// Tell the restart tracker that the task has been killed so it doesn't
 	// attempt to restart it.
